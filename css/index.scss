@@ -1,47 +1,81 @@
-$color-primarydark: gray;
+/* colors */
+$color-primarydark: #2b2e34;
+$color-secondary: #0d1423;
+$color-accent: blue;
+$color-accent2: #00c2ff;
+$color-white: white;
+$color-text: #afc0e2;
+
+/* font */
+$fontweights: (
+  "light": 300,
+  "regular": 500,
+  "bold": 600
+);
+$fontsizes: (
+  "title": calc(clamp(2rem, 3vw + 1rem, 9rem)),
+  "navtitle": 1.5rem,
+  "navmenu": 1.5rem,
+  "titlecaption": calc(clamp(1rem, 3vw + 1rem, 4rem)),
+  "paragraph": 0.75rem
+);
+// general
+$flex: (
+  display: flex,
+  gap: 1rem
+);
+/* .flex.even-columns > * {
+  width: 100%;
+} */
+$grid: (
+  display: grid,
+  gap: 1rem
+);
+@mixin flex {
+  display: flex;
+  gap: 1rem;
+}
+
+.primary-header {
+  justify-content: space-between;
+  align-items: center;
+  @include flex;
+}
+.primary-navigation {
+  --gap: clamp(1.5rem, 5vw, 3.5rem);
+  --underline-gap: 2rem;
+  list-style: none;
+  margin-block: 2rem;
+  @include flex;
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.mobile-nav-toggle {
+  display: none;
+}
+/* make images easier to work with */
+img,
+picutre {
+  max-width: 100%;
+  display: block;
+}
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 
 :root {
-  /* colors */
-  --clr-dark: 230 35% 7%;
-  --clr-light: 231 77% 90%;
-  --clr-white: 0 0% 100%;
-
-  /* font-sizes */
-  --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
-  --fs-800: 3.5rem;
-  --fs-700: clamp(1.1rem, 2vw + 1rem, 2rem);
-  --fs-600: 1rem;
-  --fs-500: 1rem;
-  --fs-400: 0.9375rem;
-  --fs-300: 1rem;
-  --fs-200: 0.875rem;
-
-  /* font-families */
-  --ff-serif: "Bellefair", serif;
-  --ff-sans-cond: "Barlow Condensed", sans-serif;
-  --ff-sans-normal: "Barlow", sans-serif;
-}
-
-@media (min-width: 35em) {
-  :root {
-    --fs-800: 5rem;
-    --fs-700: 2.5rem;
-    --fs-600: 1.5rem;
-    --fs-500: 1.25rem;
-    --fs-400: 1rem;
-  }
-}
-
-@media (min-width: 45em) {
-  :root {
-    /* font-sizes */
-    --fs-800: 6.25rem;
-    --fs-700: 3.5rem;
-    --fs-600: 2rem;
-    --fs-500: 1.75rem;
-    --fs-400: 1.125rem;
-    --fs-300: 1rem;
-  }
+  font-family: "Nunito", sans-serif;
 }
 
 /* ------------------- */
@@ -68,6 +102,7 @@ p,
 figure,
 picture {
   margin: 0;
+  font-family: inherit;
 }
 
 h1,
@@ -78,8 +113,77 @@ h5,
 h6,
 p {
   font-weight: 400;
+  font-family: "Nunito", sans-serif;
+}
+body {
+  background-color: $color-primarydark;
+  color: $color-text;
+  line-height: 1.5;
+ display: grid;
+  grid-template-rows: min-content 1fr;
+  overflow-x: hidden;
+}
+.grid-container{
+  min-height: 100vh;
+  display: grid;
+   grid-template-rows: min-content 1fr;
+   text-align: center;
+   place-items: center;
+}
+.container {
+  padding-inline: 2em;
+  margin-inline: auto;
+  max-width: 80rem;
 }
 
-.temp {
-  background-color: $color-primarydark;
+.maintitle {
+  text-align: center;
+  h1 {
+    font-size: map-get($fontsizes, title);
+    color: $color-white;
+    p {
+      color: $color-text;
+      font-size: map-get($fontsizes, titlecaption);
+    }
+  }
+}
+
+
+
+.card {
+  background-color: $color-secondary;
+  height: calc(clamp(30rem, 8vh+1rem ,40rem);
+  width: calc(clamp(26rem, 8vw+1rem ,32rem);
+  text-align: center;
+  border-radius: 5px;
+}
+.cardsection {
+  display: flex;
+  justify-content: space-between;
+}
+.companyname {
+  color: $color-accent2;
+  font-size: map-get($fontsizes, navtitle);
+  font-weight: map-get($fontweights, bold);
+  span {
+    color: $color-accent;
+  }
+}
+.robotimage {
+  background-position: center bottom;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+// mobile
+@media(max-width:35em){
+.cardsection{
+  flex-direction:column;
+}
+}
+// tablet
+@media(max-width:45em){
+
 }

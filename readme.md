@@ -25,7 +25,7 @@
   `npm install --save-dev onchange@7.0.0`
   `npm install --save-dev -E parallelshell@3.0.1`
 - Add compilation script to `package.json`
-  `"scripts": { "lite": "lite-server", "scss": "node-sass -o css/ css/", "start": "npm run lite", "test": "echo \"Error: no test specified\" && exit 1", "watch:scss": "onchange 'css/*.scss' -- npm run scss", "watch:all": "parallelshell 'npm run watch:scss' 'npm run lite'" },`
+  `"scripts": { "lite": "lite-server", "scss": "node-sass -o css/ css/", "start": "npm run watch:all", "test": "echo \"Error: no test specified\" && exit 1", "watch:scss": "onchange 'css/*.scss' -- npm run scss", "watch:all": "parallelshell 'npm run watch:scss' 'npm run lite'" },`
 - Run the scss compiler
   `npm run scss`
 
