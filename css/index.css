@@ -79,6 +79,10 @@ picutre {
   align-items: center;
   display: flex;
   gap: 1rem; }
+  @media (max-width: 35em) {
+    .primary-header {
+      top: 10px;
+      posotion: absolute; } }
 
 .primary-navigation {
   --gap: clamp(1.5rem, 5vw, 3.5rem);
@@ -87,18 +91,19 @@ picutre {
   margin-block: 2rem;
   display: flex;
   gap: 1rem; }
+  .primary-navigation li > [aria-selected='true'] {
+    color: blue; }
   .primary-navigation a {
     text-decoration: none;
     color: white; }
     .primary-navigation a:hover {
       color: #afc0e2; }
-    .primary-navigation a.active {
-      color: #00c2ff; }
   @media (max-width: 35em) {
     .primary-navigation {
       position: fixed;
       z-index: 1000;
       inset: 0 0 0 20%;
+      top: 1rem;
       list-style: none;
       padding: calc(min(20rem, 15vh)) 2rem;
       margin: 0;
@@ -111,11 +116,11 @@ picutre {
   @media (max-width: 35em) {
     .mobile-nav-toggle {
       pointer: cursor;
-      display: block;
+      display: flex;
       position: absolute;
       z-index: 2000;
       right: 1rem;
-      top: 2rem;
+      top: 1rem;
       background: transparent;
       background-image: url(../assets/icon-hamburger.svg);
       background-repeat: no-repeat;
@@ -188,7 +193,7 @@ body {
   align-self: center;
   border-radius: 5px; }
   .card img {
-    vertical-align: middle;
+    margin-top: -10px;
     place-items: center;
     margin-inline: auto;
     margin-bottom: 1rem; }

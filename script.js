@@ -82,17 +82,9 @@ $(document).ready(function () {
   })
 })
 
-function toggleActiveTab(selectedTab) {
+function toggleActiveTab() {
   //de-selects all tabs
-  $('.tabButton').attr('aria-selected', false)
+  $('.primary-navigation').attr('aria-selected', false)
   //makes the selected tab active
-  $(selectedTab).attr('aria-selected', true)
-}
-
-function loadDestination(destination) {
-  //Update Destination description
-  $('.description').text(destination.description)
-  //Update description meta
-  $('.distance').text(destination.distance)
-  $('.travelLength').text(destination.travel)
+  $('[aria-selected="false"]').attr('aria-selected', true).addClass('.active')
 }

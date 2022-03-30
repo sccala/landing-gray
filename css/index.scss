@@ -115,6 +115,10 @@ picutre {
   justify-content: space-between;
   align-items: center;
   @include flex;
+  @media (max-width: 35em) {
+    top: 10px;
+    posotion: absolute;
+  }
 }
 .primary-navigation {
   --gap: clamp(1.5rem, 5vw, 3.5rem);
@@ -122,20 +126,21 @@ picutre {
   list-style: none;
   margin-block: 2rem;
   @include flex;
+  li > [aria-selected='true'] {
+    color: $color-accent;
+  }
   a {
     text-decoration: none;
     color: white;
     &:hover {
       color: $color-text;
     }
-    &.active {
-      color: $color-accent2;
-    }
   }
   @media (max-width: 35em) {
     position: fixed;
     z-index: 1000;
     inset: 0 0 0 20%;
+    top: 1rem;
     list-style: none;
     padding: calc(min(20rem, 15vh)) 2rem;
     margin: 0;
@@ -149,11 +154,11 @@ picutre {
   display: none;
   @media (max-width: 35em) {
     pointer: cursor;
-    display: block;
+    display: flex;
     position: absolute;
     z-index: 2000;
     right: 1rem;
-    top: 2rem;
+    top: 1rem;
     background: transparent;
     background-image: url(../assets/icon-hamburger.svg);
     background-repeat: no-repeat;
@@ -242,7 +247,7 @@ body {
   align-self: center;
   border-radius: 5px;
   img {
-    vertical-align: middle;
+    margin-top: -10px;
     place-items: center;
     margin-inline: auto;
     margin-bottom: 1rem;
