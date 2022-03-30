@@ -10,25 +10,28 @@
       href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;500;600&display=swap"
       rel="stylesheet"
     />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   
 
     <script src='./script.js'></script>
   </head>
   <body class="container">
     <header class="primary-header">
       <div class="companyname">Some<span>Company</span></div>
+      <!-- mobile toggle -->
          <button class="mobile-nav-toggle" aria-controls="primary-navigation">
         <span class="sr-only" aria-expanded="false">Menu</span>
       </button>
+        <!-- mobile toggle end -->
       <nav>
-        <ul class="primary-navigation">
-          <li><a class='active' href="#">Home</a></li>
-          <li><a href="#">Products</a></li>
-          <li><a href="#">FAQ</a></li>
-          <li><a href="#">Contact</a></li>
+        <ul class="primary-navigation" role="tablist">
+          <li role="tab" class='active'tabindex="0" id='home-btn'><a href="#">Home</a></li>
+          <li role="tab" tabindex="-1"><a id='products-btn'href="#">Products</a></li>
+          <li role="tab" tabindex="-1"><a id='faq-btn'href="#">FAQ</a></li>
+          <li role="tab" tabindex="-1"><a id='contact-btn'href="#">Contact</a></li>
         </ul>
       </nav>
     </header>
+
     <main class="main-container">
       <div class="maintitle">
         <h1>Scaffolding a New Company</h1>
@@ -50,7 +53,6 @@
           <h2>Contact</h2>
           <p>Join us with the lastest blockchain innovations</p>
         </div>
-       
       </div>
       <div class="contentslist">
         <div class="contents">
@@ -69,4 +71,5 @@
       <img class="robotimage" src="../assets/mobile.png" alt="mr.robot" />
     </picture>
   </body>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </html>
