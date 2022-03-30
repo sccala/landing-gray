@@ -119,16 +119,15 @@ body {
   background-color: $color-primarydark;
   color: $color-text;
   line-height: 1.5;
- display: grid;
-  grid-template-rows: min-content 1fr;
+
+  // grid-template-rows: min-content 2fr;
   overflow-x: hidden;
 }
-.grid-container{
+.grid-container {
   min-height: 100vh;
-  display: grid;
-   grid-template-rows: min-content 1fr;
-   text-align: center;
-   place-items: center;
+  grid-template-rows: minmax(5rem, 30em) minmax(0, 30em) minmax(0, 30em);
+  text-align: center;
+  place-items: center;
 }
 .container {
   padding-inline: 2em;
@@ -148,18 +147,32 @@ body {
   }
 }
 
-
-
 .card {
   background-color: $color-secondary;
-  height: calc(clamp(30rem, 8vh+1rem ,40rem);
-  width: calc(clamp(26rem, 8vw+1rem ,32rem);
+  height: calc(clam(20rem, 8vh+1rem, 25rem));
+  width: calc(clam(18rem, 8vw+2rem, 30rem));
+  padding-inline: 3rem;
+  padding-bottom: 2rem;
   text-align: center;
+  align-self: center;
   border-radius: 5px;
+  img {
+    vertical-align: middle;
+    place-items: center;
+    margin-inline: auto;
+    margin-bottom: 1rem;
+  }
+  p {
+    vertical-align: middle;
+    place-items: center;
+  }
 }
 .cardsection {
   display: flex;
   justify-content: space-between;
+  margin-block: 5rem;
+
+  column-gap: 2rem;
 }
 .companyname {
   color: $color-accent2;
@@ -172,18 +185,35 @@ body {
 .robotimage {
   background-position: center bottom;
   width: 100%;
+  display: block;
   position: absolute;
   left: 0;
   bottom: 0;
-}
+  align-self: baseline;
+  justify-self: end;
 
-// mobile
-@media(max-width:35em){
-.cardsection{
-  flex-direction:column;
-}
+  // mobile
+  @media (max-width: 35em) {
+    .cardsection {
+      flex: none;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-rows: minmax(0, 20em) minmax(30em, 60em), minmax(30em, 60em);
+      // grid-template-rows: min-content 1fr;
+      text-align: center;
+      place-items: center;
+    }
+  }
 }
 // tablet
-@media(max-width:45em){
-
+@media (max-width: 45em) {
+  .grid-container {
+    display: grid;
+    grid-template-rows: minmax(0, 20em) minmax(30em, 60em), minmax(30em, 60em);
+    // grid-template-rows: min-content 1fr;
+    text-align: center;
+    place-items: center;
+  }
 }

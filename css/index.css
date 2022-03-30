@@ -79,14 +79,11 @@ body {
   background-color: #2b2e34;
   color: #afc0e2;
   line-height: 1.5;
-  display: grid;
-  grid-template-rows: min-content 1fr;
   overflow-x: hidden; }
 
 .grid-container {
   min-height: 100vh;
-  display: grid;
-  grid-template-rows: min-content 1fr;
+  grid-template-rows: minmax(5rem, 30em) minmax(0, 30em) minmax(0, 30em);
   text-align: center;
   place-items: center; }
 
@@ -106,14 +103,27 @@ body {
 
 .card {
   background-color: #0d1423;
-  height: calc(clamp(30rem, 8vh+1rem ,40rem));
-  width: calc(clamp(26rem, 8vw+1rem ,32rem));
+  height: calc(clam(20rem, 8vh+1rem, 25rem));
+  width: calc(clam(18rem, 8vw+2rem, 30rem));
+  padding-inline: 3rem;
+  padding-bottom: 2rem;
   text-align: center;
+  align-self: center;
   border-radius: 5px; }
+  .card img {
+    vertical-align: middle;
+    place-items: center;
+    margin-inline: auto;
+    margin-bottom: 1rem; }
+  .card p {
+    vertical-align: middle;
+    place-items: center; }
 
 .cardsection {
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  margin-block: 5rem;
+  column-gap: 2rem; }
 
 .companyname {
   color: #00c2ff;
@@ -125,10 +135,24 @@ body {
 .robotimage {
   background-position: center bottom;
   width: 100%;
+  display: block;
   position: absolute;
   left: 0;
-  bottom: 0; }
+  bottom: 0;
+  align-self: baseline;
+  justify-self: end; }
+  @media (max-width: 35em) {
+    .robotimage .cardsection {
+      flex: none; }
+    .robotimage .grid-container {
+      display: grid;
+      grid-template-rows: minmax(0, 20em) minmax(30em, 60em), minmax(30em, 60em);
+      text-align: center;
+      place-items: center; } }
 
-@media (max-width: 35em) {
-  .cardsection {
-    flex-direction: column; } }
+@media (max-width: 45em) {
+  .grid-container {
+    display: grid;
+    grid-template-rows: minmax(0, 20em) minmax(30em, 60em), minmax(30em, 60em);
+    text-align: center;
+    place-items: center; } }
