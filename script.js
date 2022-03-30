@@ -1,7 +1,10 @@
 // @ts-nocheck
+
+var $navitem=$
 $(function () {
-  $('.mobile-nav-toggle').click(function () {
-   
+  $('.mobile-nav-toggle li').click(function () {
+e.preventDefault()
+   $()
   })
 })
 $(function () {
