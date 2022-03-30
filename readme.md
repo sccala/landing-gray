@@ -31,4 +31,4 @@
 
 ## Demo
 
-Please see the demo [site](landing-company.netlify.app). Deployed on Netlify.
+Please see the demo [site](https://landing-company.netlify.app). Deployed on Netlify.
