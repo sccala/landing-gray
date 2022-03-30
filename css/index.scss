@@ -51,10 +51,10 @@ $grid: (
     text-decoration: none;
     color: white;
     &:hover {
-      color: $color-accent2;
+      color: $color-text;
     }
-    &:active {
-      color: $color-accent;
+    &.active {
+      color: $color-accent2;
     }
   }
 }
@@ -72,6 +72,7 @@ $grid: (
 .mobile-nav-toggle {
   display: none;
 }
+
 /* make images easier to work with */
 img,
 picutre {

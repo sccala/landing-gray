@@ -20,9 +20,9 @@
     text-decoration: none;
     color: white; }
     .primary-navigation a:hover {
+      color: #afc0e2; }
+    .primary-navigation a.active {
       color: #00c2ff; }
-    .primary-navigation a:active {
-      color: blue; }
 
 .sr-only {
   position: absolute;

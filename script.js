@@ -1,10 +1,11 @@
 // @ts-nocheck
 $(function () {
-  $('.carousel').carousel({ interval: 2000 })
-  $('#carouselPause').click(function () {
-    $('.carousel').carousel('pause')
+  $('.mobile-nav-toggle').click(function () {
+   
   })
-  $('#carouselPlay').click(function () {
-    $('.carousel').carousel('cycle')
+})
+$(function () {
+  $('.primary-navigation').click(function () {
+  $('.primary-navigation').add('.active')
   })
 })
