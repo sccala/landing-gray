@@ -10,9 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;500;600&display=swap"
       rel="stylesheet"
     />
-   
-
-    <script src='./script.js'></script>
+      <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
   <body class="container">
     <header class="primary-header">
@@ -24,10 +22,22 @@
         <!-- mobile toggle end -->
       <nav>
         <ul class="primary-navigation" role="tablist">
-          <li role="tab" class='active'tabindex="0" id='home-btn'><a href="#">Home</a></li>
-          <li role="tab" tabindex="-1"><a id='products-btn'href="#">Products</a></li>
-          <li role="tab" tabindex="-1"><a id='faq-btn'href="#">FAQ</a></li>
-          <li role="tab" tabindex="-1"><a id='contact-btn'href="#">Contact</a></li>
+          <li role="tab" 
+          class='active'
+          id='home-btn' 
+          aria-selected="true"
+          aria-controls="home-tab"><a href="#">Home</a></li>
+          <li role="tab" 
+          aria-selected="false"
+          aria-controls="products-tab"><a id='products-btn'
+          href="#">Products</a></li>
+          <li role="tab" 
+          aria-selected="false"
+          aria-controls="faq-tab"><a id='faq-btn'
+          href="#">FAQ</a></li>
+          <li role="tab" 
+          aria-selected="false"
+          aria-controls="contact-tab"><a id='contact-btn'href="#">Contact</a></li>
         </ul>
       </nav>
     </header>
@@ -55,13 +65,25 @@
         </div>
       </div>
       <div class="contentslist">
-        <div class="contents">
+         <div hidden class="contents" id="home-tab"
+        tabindex="0"
+        role="tabpanel">
+          <h2>Home</h2>
+          <p>Join us with the lastest blockchain innovations.Join us with the lastest blockchain innovations.Join us with the lastest blockchain innovations</p>
+        </div>
+        <div hidden class="contents" id="products-tab"
+        tabindex="0"
+        role="tabpanel">
           <h2>Products</h2>
           <p>Join us with the lastest blockchain innovations.Join us with the lastest blockchain innovations.Join us with the lastest blockchain innovations</p>
         </div>
-         <div class="contents"><h2>FAQ</h2>
+         <div hidden class="contents" id="faq-tab"
+        tabindex="0"
+        role="tabpanel"><h2>FAQ</h2>
           <p>Join us with the lastest blockchain innovations.Join us with the lastest blockchain innovations.Join us with the lastest blockchain innovations</p></div>
-          <div class="contents"><h2>Contact</h1>
+          <div hidden class="contents" id="contact-tab"
+        tabindex="0"
+        role="tabpanel"><h2>Contact</h1>
           <p>Join us with the lastest blockchain innovations.Join us with the lastest blockchain innovations.Join us with the lastest blockchain innovations</p></div>
       </div>
     </main>
@@ -70,6 +92,7 @@
       <source srcset="../assets/tablet.png" media="(min-width:35em)" />
       <img class="robotimage" src="../assets/mobile.png" alt="mr.robot" />
     </picture>
+    
   </body>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script language="JavaScript" type="text/javascript"  src='./script.js'></script>
 </html>
