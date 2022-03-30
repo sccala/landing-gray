@@ -8,28 +8,28 @@ $color-text: #afc0e2;
 
 /* font */
 $fontweights: (
-  "light": 300,
-  "regular": 500,
-  "bold": 600
+  'light': 300,
+  'regular': 500,
+  'bold': 600,
 );
 $fontsizes: (
-  "title": calc(clamp(2rem, 3vw + 1rem, 9rem)),
-  "navtitle": 1.5rem,
-  "navmenu": 1.5rem,
-  "titlecaption": calc(clamp(1rem, 3vw + 1rem, 4rem)),
-  "paragraph": 0.75rem
+  'title': calc(clamp(2rem, 3vw + 1rem, 9rem)),
+  'navtitle': 1.5rem,
+  'navmenu': 1.5rem,
+  'titlecaption': calc(clamp(1rem, 3vw + 1rem, 4rem)),
+  'paragraph': 0.75rem,
 );
 // general
 $flex: (
   display: flex,
-  gap: 1rem
+  gap: 1rem,
 );
 /* .flex.even-columns > * {
   width: 100%;
 } */
 $grid: (
   display: grid,
-  gap: 1rem
+  gap: 1rem,
 );
 @mixin flex {
   display: flex;
@@ -75,7 +75,7 @@ picutre {
 }
 
 :root {
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
 /* ------------------- */
@@ -113,30 +113,30 @@ h5,
 h6,
 p {
   font-weight: 400;
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 body {
   background-color: $color-primarydark;
   color: $color-text;
   line-height: 1.5;
-
-  // grid-template-rows: min-content 2fr;
   overflow-x: hidden;
 }
-.grid-container {
-  min-height: 100vh;
-  grid-template-rows: minmax(5rem, 30em) minmax(0, 30em) minmax(0, 30em);
-  text-align: center;
-  place-items: center;
-}
+
 .container {
   padding-inline: 2em;
   margin-inline: auto;
   max-width: 80rem;
 }
+.main-container {
+  margin-inline: auto;
+  align-content: center;
+}
 
 .maintitle {
+  margin-block: 4rem;
   text-align: center;
+  align-self: center;
+  justify-self: center;
   h1 {
     font-size: map-get($fontsizes, title);
     color: $color-white;
@@ -166,12 +166,17 @@ body {
     vertical-align: middle;
     place-items: center;
   }
+  h2 {
+    color: white;
+    &:hover {
+      color: $color-accent2;
+      cursor: pointer;
+    }
+  }
 }
 .cardsection {
   display: flex;
   justify-content: space-between;
-  margin-block: 5rem;
-
   column-gap: 2rem;
 }
 .companyname {
@@ -183,37 +188,74 @@ body {
   }
 }
 .robotimage {
-  background-position: center bottom;
   width: 100%;
   display: block;
-  position: absolute;
+  // align-self: center;
+  // justify-self: center;
   left: 0;
   bottom: 0;
-  align-self: baseline;
-  justify-self: end;
-
-  // mobile
-  @media (max-width: 35em) {
-    .cardsection {
-      flex: none;
-    }
-
-    .grid-container {
-      display: grid;
-      grid-template-rows: minmax(0, 20em) minmax(30em, 60em), minmax(30em, 60em);
-      // grid-template-rows: min-content 1fr;
-      text-align: center;
-      place-items: center;
+  position: absolute;
+}
+// mobile
+@media (max-width: 35em) {
+  .maintitle {
+    margin-block: 1rem;
+    h1 {
+      font-size: map-get($fontsizes, navtitle);
+      color: $color-white;
+      p {
+        color: $color-text;
+        font-size: map-get($fontsizes, paragraph);
+      }
     }
   }
+  .cardsection {
+    display: grid;
+    grid-template-columns: 2rem 2fr 2fr 2rem;
+    gap: 0.5rem;
+    grid-template-areas:
+      '. a a .'
+      '. b c .';
+  }
+  #card1 {
+    grid-area: a;
+  }
+  #card2 {
+    grid-area: b;
+  }
+  #card3 {
+    grid-area: c;
+  }
 }
+
 // tablet
 @media (max-width: 45em) {
-  .grid-container {
+  .maintitle {
+    margin-block: 1rem;
+    h1 {
+      font-size: map-get($fontsizes, navtitle);
+      color: $color-white;
+      p {
+        color: $color-text;
+        font-size: map-get($fontsizes, paragraph);
+      }
+    }
+  }
+  .cardsection {
     display: grid;
-    grid-template-rows: minmax(0, 20em) minmax(30em, 60em), minmax(30em, 60em);
-    // grid-template-rows: min-content 1fr;
-    text-align: center;
-    place-items: center;
+    grid-template-columns: 2rem 2fr 2fr 2rem;
+    gap: 0.5rem;
+    grid-template-areas:
+      '. a a .'
+      '. b c .';
+  }
+  #card1 {
+    grid-area: a;
+  }
+  #card2 {
+    grid-area: b;
+  }
+  #card3 {
+    grid-area: c;
   }
 }

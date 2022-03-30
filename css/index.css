@@ -40,7 +40,7 @@ picutre {
     scroll-behavior: auto !important; } }
 
 :root {
-  font-family: "Nunito", sans-serif; }
+  font-family: 'Nunito', sans-serif; }
 
 /* ------------------- */
 /* Reset               */
@@ -73,7 +73,7 @@ h5,
 h6,
 p {
   font-weight: 400;
-  font-family: "Nunito", sans-serif; }
+  font-family: 'Nunito', sans-serif; }
 
 body {
   background-color: #2b2e34;
@@ -81,19 +81,20 @@ body {
   line-height: 1.5;
   overflow-x: hidden; }
 
-.grid-container {
-  min-height: 100vh;
-  grid-template-rows: minmax(5rem, 30em) minmax(0, 30em) minmax(0, 30em);
-  text-align: center;
-  place-items: center; }
-
 .container {
   padding-inline: 2em;
   margin-inline: auto;
   max-width: 80rem; }
 
+.main-container {
+  margin-inline: auto;
+  align-content: center; }
+
 .maintitle {
-  text-align: center; }
+  margin-block: 4rem;
+  text-align: center;
+  align-self: center;
+  justify-self: center; }
   .maintitle h1 {
     font-size: calc(clamp(2rem, 3vw + 1rem, 9rem));
     color: white; }
@@ -118,11 +119,15 @@ body {
   .card p {
     vertical-align: middle;
     place-items: center; }
+  .card h2 {
+    color: white; }
+    .card h2:hover {
+      color: #00c2ff;
+      cursor: pointer; }
 
 .cardsection {
   display: flex;
   justify-content: space-between;
-  margin-block: 5rem;
   column-gap: 2rem; }
 
 .companyname {
@@ -133,26 +138,50 @@ body {
     color: blue; }
 
 .robotimage {
-  background-position: center bottom;
   width: 100%;
   display: block;
-  position: absolute;
   left: 0;
   bottom: 0;
-  align-self: baseline;
-  justify-self: end; }
-  @media (max-width: 35em) {
-    .robotimage .cardsection {
-      flex: none; }
-    .robotimage .grid-container {
-      display: grid;
-      grid-template-rows: minmax(0, 20em) minmax(30em, 60em), minmax(30em, 60em);
-      text-align: center;
-      place-items: center; } }
+  position: absolute; }
+
+@media (max-width: 35em) {
+  .maintitle {
+    margin-block: 1rem; }
+    .maintitle h1 {
+      font-size: 1.5rem;
+      color: white; }
+      .maintitle h1 p {
+        color: #afc0e2;
+        font-size: 0.75rem; }
+  .cardsection {
+    display: grid;
+    grid-template-columns: 2rem 2fr 2fr 2rem;
+    gap: 0.5rem;
+    grid-template-areas: '. a a .' '. b c .'; }
+  #card1 {
+    grid-area: a; }
+  #card2 {
+    grid-area: b; }
+  #card3 {
+    grid-area: c; } }
 
 @media (max-width: 45em) {
-  .grid-container {
+  .maintitle {
+    margin-block: 1rem; }
+    .maintitle h1 {
+      font-size: 1.5rem;
+      color: white; }
+      .maintitle h1 p {
+        color: #afc0e2;
+        font-size: 0.75rem; }
+  .cardsection {
     display: grid;
-    grid-template-rows: minmax(0, 20em) minmax(30em, 60em), minmax(30em, 60em);
-    text-align: center;
-    place-items: center; } }
+    grid-template-columns: 2rem 2fr 2fr 2rem;
+    gap: 0.5rem;
+    grid-template-areas: '. a a .' '. b c .'; }
+  #card1 {
+    grid-area: a; }
+  #card2 {
+    grid-area: b; }
+  #card3 {
+    grid-area: c; } }
